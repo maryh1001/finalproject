@@ -19,7 +19,7 @@ function CreateExercise() {
         console.log(duration);
         console.log(date);
     
-        window.location = '/'
+        window.location = '/exercises'
     };
 
     return(
