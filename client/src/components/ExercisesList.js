@@ -1,9 +1,5 @@
-import { Component } from 'react';
 
-
-export default class ExercisesList extends Component {
-  
-  render() {
+function ExercisesList() {  
     return (
       <div>
         <h3>Logged Exercises</h3>
@@ -23,5 +19,7 @@ export default class ExercisesList extends Component {
         </table>
       </div>
     )
-  }
+
 }
+
+export default ExercisesList;

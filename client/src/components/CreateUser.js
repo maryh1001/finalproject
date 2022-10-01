@@ -1,55 +1,35 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-export default class CreateUser extends Component {
-  constructor(props) {
-    super(props);
+function CreateUser() {
+  const [username, setUsername] = useState('');
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(username);
 
-    this.state = {
-      username: ''
-    }
+    window.location = '/'
   }
 
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value
-    })
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-
-    const user = {
-      username: this.state.username
-    }
-    console.log(user);
-
-    this.setState({
-      username: ''
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <h3>Add a New User</h3>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
-            <label>Username: </label>
-            <input  type="text"
-                required
-                className="form-control"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                />
-          </div>
-          <div className="form-group">
-            <input type="submit" value="Add User" className="btn btn-primary" />
-          </div>
-        </form>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <h3>Add a New User</h3>
+      <form onSubmit={ handleSubmit }>
+        <div className="form-group"> 
+          <label>Username: </label>
+          <input  type="text"
+              required
+              className="form-control"
+              value={ username }
+              onChange={ event => setUsername(event.target.value) }
+          />
+        </div>
+        <div className="form-group">
+          <input type="submit" value="Add User" className="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  )
 }
+
+export default CreateUser;
+
