@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 
 export default class ExercisesList extends Component {
-
+  
   render() {
     return (
       <div>
@@ -18,7 +18,7 @@ export default class ExercisesList extends Component {
             </tr>
           </thead>
           <tbody>
-            { this.exerciseList() }
+            
           </tbody>
         </table>
       </div>
