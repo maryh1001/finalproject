@@ -1,8 +1,11 @@
-function Home() {  
+
+
+
+
+const Home= () => {  
+
     return (
-      <div>
-        <h3>Welcome to the Home Page</h3>
-      </div>
+      <h3>Home Page</h3>
     )
 
 }
