@@ -1,11 +1,18 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 function CreateUser() {
   const [username, setUsername] = useState('');
+  /*want to change this page to be the login/signup page and get rid of the username input on create exercise and the table */
 
   const handleSubmit = event => {
     event.preventDefault();
     console.log(username);
+
+    /* 
+      axios.post('http://localhost:3000/users/add', user)
+        .then(res => console.log(res.data));
+    */
 
     window.location = '/'
   }

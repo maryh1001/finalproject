@@ -1,25 +1,37 @@
-import { useEffect, useState } from 'react';
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
+import { useState } from 'react';
+import axios from 'axios';
 
 function CreateExercise() {
-    const [username, setUsername] = useState('');
-    const [description, setDescription] = useState('');
-    const [duration, setDuration] = useState('0');
-    const [date, setDate] = useState(new Date());
+
+    const [exercise, setExercise] = useState({
+      username: '',
+      description: '',
+      duration: '0',
+      date: new Date(),
+    })
     
-    const handleDatePicker = (date) => {
-      setDate(date)
-    };
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(username);
-        console.log(description);
-        console.log(duration);
-        console.log(date);
-    
+
+        const newExercise = {
+          username: exercise.username,
+          description: exercise.description,
+          duration: exercise.duration,
+          date: exercise.date
+        }
+
+        console.log(newExercise);
+
+        /*  this is not working
+        axios.post('http://localhost:3000/exercises/add', exercise)
+          .then(res => console.log(res.data)); 
+        */
+
         window.location = '/exercises'
+
+    
+        
     };
 
     return(
@@ -27,12 +39,14 @@ function CreateExercise() {
           <h3>Add a New Exercise</h3>
           <form onSubmit={ handleSubmit }>
             <div className="form-group"> 
-                <label>Username: </label>
+                <label>Mood: </label>
                 <input  type="text"
                     required
                     className="form-control"
-                    value={ username }
-                    onChange={ event => setUsername(event.target.value) }
+                    value={ exercise.username }
+                    onChange={ event => {
+                      setExercise({ ...exercise, username: event.target.value })
+                    } }
                 />
             </div>
             <div className="form-group"> 
@@ -40,8 +54,10 @@ function CreateExercise() {
               <input  type="text"
                   required
                   className="form-control"
-                  value={ description }
-                  onChange={ event => setDescription(event.target.value) }
+                  value={ exercise.description }
+                  onChange={ event => {
+                    setExercise({ ...exercise, description: event.target.value })
+                  } }
                   />
             </div>
             <div className="form-group">
@@ -49,18 +65,22 @@ function CreateExercise() {
               <input 
                   type="number" 
                   className="form-control"
-                  value={ duration }
-                  onChange={ event => setDuration(event.target.value) }
-                  />
+                  value={ exercise.duration }
+                  onChange={ event => {
+                    setExercise({ ...exercise, duration: event.target.value })
+                  } }
+                />
             </div>
             <div className="form-group">
               <label>Date: </label>
-              <div>
-                <DatePicker
-                  selected={ date }
-                  onChange={ handleDatePicker }
+              <input 
+                  type="date" 
+                  className="form-control"
+                  value={ exercise.date }
+                  onChange={ event => {
+                    setExercise({ ...exercise, date: event.target.value })
+                  } }
                 />
-              </div>
             </div>
     
             <div className="form-group">
