@@ -1,29 +1,33 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-    
-require('dotenv').config();
-    
-const app = express();
-const port = process.env.PORT || 3000;
-    
-app.use(cors());
-app.use(express.json());
+require('dotenv').config()
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true}  
-);
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("MongoDB database connection established successfully");
-});
+const express = require('express')
+const mongoose = require('mongoose')
+const workoutRoutes = require('./routes/workouts')
+const userRoutes = require('./routes/user')
 
-const exercisesRouter = require('./routes/exercises');
-const usersRouter = require('./routes/users');
+// express app
+const app = express()
 
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
-    
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+// middleware
+app.use(express.json())
+
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
+})
+
+// routes
+app.use('/api/workouts', workoutRoutes)
+app.use('/api/user', userRoutes)
+
+// connect to db
+mongoose.connect(process.env.ATLAS_URI)
+  .then(() => {
+    // listen for requests
+    app.listen(process.env.PORT, () => {
+      console.log('connected to db & listening on port', process.env.PORT)
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+  })
