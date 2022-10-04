@@ -8,7 +8,7 @@ const workoutSchema = new Schema({
     required: true 
   },
   duration: { 
-    ype: Number, 
+    type: Number, 
     required: true
   },
   date: { 
