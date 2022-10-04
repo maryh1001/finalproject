@@ -7,8 +7,8 @@ const WorkoutForm = () => {
   const { user } = useAuthContext()
 
   const [description, setDescription] = useState('')
-  const [duration, setDuration] = useState()
-  const [date, setDate] = useState(new Date())
+  const [duration, setDuration] = useState('')
+  const [date, setDate] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -39,7 +39,7 @@ const WorkoutForm = () => {
     if (response.ok) {
       setDescription('')
       setDuration('')
-      setDate(new Date())
+      setDate('')
       setError(null)
       setEmptyFields([])
       dispatch({type: 'CREATE_WORKOUT', payload: json})
@@ -55,7 +55,7 @@ const WorkoutForm = () => {
         type="text"
         onChange={(e) => setDescription(e.target.value)}
         value={description}
-        className={emptyFields.includes('title') ? 'error' : ''}
+        className={emptyFields.includes('description') ? 'error' : ''}
       />
 
       <label>Duration (in minutes):</label>
@@ -63,7 +63,7 @@ const WorkoutForm = () => {
         type="number"
         onChange={(e) => setDuration(e.target.value)}
         value={duration}
-        className={emptyFields.includes('load') ? 'error' : ''}
+        className={emptyFields.includes('duration') ? 'error' : ''}
       />
 
       <label>Date:</label>
@@ -71,7 +71,7 @@ const WorkoutForm = () => {
         type="date"
         onChange={(e) => setDate(e.target.value)}
         value={date}
-        className={emptyFields.includes('reps') ? 'error' : ''}
+        className={emptyFields.includes('date') ? 'error' : ''}
       />
 
       <button>Add Workout</button>
