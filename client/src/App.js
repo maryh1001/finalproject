@@ -1,27 +1,37 @@
-import {BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home'
-import ExercisesList from './components/ExercisesList';
-import EditExercise from './components/EditExercise';
-import CreateExercise from './components/CreateExercise';
-import CreateUser from './components/CreateUser';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext'
+
+// pages & components
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import Navbar from './components/Navbar'
 
 function App() {
+  const { user } = useAuthContext()
+
   return (
-    <BrowserRouter>
-      <div className='container'> 
+    <div className="App">
+      <BrowserRouter>
         <Navbar />
-        <br/>
-        <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route exact path="/exercises" element={<ExercisesList/>} />
-          <Route exact path="/edit/:id" element={<EditExercise/>} />
-          <Route exact path="/create" element={<CreateExercise/>} />
-          <Route exact path="/user" element={<CreateUser/>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+        <div className="pages">
+          <Routes>
+            <Route 
+              path="/" 
+              element={user ? <Home /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/login" 
+              element={!user ? <Login /> : <Navigate to="/" />} 
+            />
+            <Route 
+              path="/signup" 
+              element={!user ? <Signup /> : <Navigate to="/" />} 
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 }
 
