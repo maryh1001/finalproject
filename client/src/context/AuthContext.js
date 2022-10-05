@@ -13,11 +13,13 @@ export const authReducer = (state, action) => {
   }
 }
 
+//create some kind of custom component that is going to wrap our entire app and provide a value
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { 
     user: null
   })
 
+  //check for a token in local storage to see if a user is already logged in 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'))
 

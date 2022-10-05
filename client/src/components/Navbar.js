@@ -18,12 +18,14 @@ const Navbar = () => {
         </Link>
         <nav>
           {user && (
+            // if we have a user we see this
             <div>
               <span>{user.email}</span>
               <button onClick={handleClick}>Log out</button>
             </div>
           )}
           {!user && (
+            //if we don't have a user we see this
             <div>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>

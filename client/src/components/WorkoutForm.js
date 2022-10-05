@@ -36,6 +36,7 @@ const WorkoutForm = () => {
       setError(json.error)
       setEmptyFields(json.emptyFields)
     }
+    //if response is ok then reset all input fields so you can put in a new workout without having to delete the previous info 
     if (response.ok) {
       setDescription('')
       setDuration('')
@@ -53,9 +54,9 @@ const WorkoutForm = () => {
       <label>Workout Description:</label>
       <input 
         type="text"
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={(e) => setDescription(e.target.value)} //when a user types into this field they set the title
         value={description}
-        className={emptyFields.includes('description') ? 'error' : ''}
+        className={emptyFields.includes('description') ? 'error' : ''} //conditional class... if empty fields does indeed include 'title' then give it a class of 'error' and if it is false then take away the class
       />
 
       <label>Duration (in minutes):</label>
