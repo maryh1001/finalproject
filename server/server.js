@@ -1,12 +1,15 @@
 require('dotenv').config()
 
 const express = require('express')
+const path = require('path')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/users')
 
 // express app
 const app = express()
+
+app.use(express.static(path.resolve(__dirname, '../', 'client/build')))
 
 // middleware
 app.use(express.json()) //any req that comes in it looks if it has some data and then passes it and attaches it to the req object
