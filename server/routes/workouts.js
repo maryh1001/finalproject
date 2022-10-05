@@ -8,15 +8,17 @@ const {
 } = require('../controllers/workoutController')
 const requireAuth = require('../middleware/requireAuth')
 
+//creates instance
 const router = express.Router()
 
 // require auth for all workout routes
 router.use(requireAuth)
 
-// GET all workouts
+// attach routers
+//this fires when you access /api/workout/ and should get you all of the workouts
 router.get('/', getWorkouts)
 
-//GET a single workout
+//this fires when you access /api/workout/:id and should get you a single workout :id represents a route parameter whereby the id can change
 router.get('/:id', getWorkout)
 
 // POST a new workout

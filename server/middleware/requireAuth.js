@@ -9,6 +9,7 @@ const requireAuth = async (req, res, next) => {
     return res.status(401).json({error: 'Authorization token required'})
   }
 
+  //split string into an array -- [1] grabs second part of string that is split at the space 
   const token = authorization.split(' ')[1]
 
   try {
