@@ -2,6 +2,7 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
+
 //destructure from the props that we pass through (the workout)
 const WorkoutDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext()

@@ -16,14 +16,14 @@ const workoutSchema = new Schema({
     required: true
   },
   date: { 
-    type: Date, 
+    type: String, 
     required: true 
   },
-//associating every workout document to a specific user
-user_id: {
+  //associating every workout document to a specific user
+  user_id: {
   type: String,
   required: true
-}
+  }
 }, { timestamps: true })
 
 // export module and say its equal to mongoose.model to create a new model and then you give the model a name (singular because it will pluralize it to create a workouts collection for you) and then pass in the schema 
