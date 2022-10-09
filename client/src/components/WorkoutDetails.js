@@ -1,10 +1,14 @@
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 
 //destructure from the props that we pass through (the workout)
 const WorkoutDetails = ({ workout }) => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   const { dispatch } = useWorkoutsContext()
   const { user } = useAuthContext()
 
@@ -27,7 +31,7 @@ const WorkoutDetails = ({ workout }) => {
   }
 
   return (
-    <div className="workout-details">
+    <div className={`workout-details ${darkMode ? "workout-details-dark" : "workout-details-light"}`}>
       <h4>{workout.description}</h4>
       <p><strong>Duration (in minutes): </strong>{workout.duration}</p>
       <p><strong>Date: </strong>{workout.date}</p>
