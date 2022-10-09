@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import { useAuthContext } from '../hooks/useAuthContext'
+import { ThemeContext } from '../context/ThemeContext'
 
 const WorkoutForm = () => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   const { dispatch } = useWorkoutsContext()
   const { user } = useAuthContext()
 
@@ -48,7 +51,7 @@ const WorkoutForm = () => {
   }
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
+    <form className={`form ${darkMode ? "form-dark" : "form-light"}`} onSubmit={handleSubmit}>
       <h3>Add a New Workout</h3>
 
       <label>Workout Description:</label>

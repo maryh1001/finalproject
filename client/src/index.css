@@ -11,9 +11,7 @@ body {
   margin: 0;
   font-family: "Poppins";
 }
-header {
-  background: #fff;
-}
+
 header .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -22,10 +20,7 @@ header .container {
   align-items: center;
   justify-content: space-between;
 }
-header a {
-  color: #333;
-  text-decoration: none;
-}
+
 .pages{
   max-width: 1400px;
   padding: 20px;
@@ -38,34 +33,35 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
-.workout-details {
-  background: #fff;
+
+.workout-details{
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+
 }
 .workout-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+
 }
+
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+
 }
+
 .workout-details span {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
   padding: 6px;
   border-radius: 50%;
-  color: #333;
 }
+
 
 /* new workout form */
 label, input {
@@ -76,19 +72,19 @@ input {
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form button {
-  background: var(--primary);
   border: 0;
-  color: #fff;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
 }
+
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -97,9 +93,11 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+
 input.error {
   border: 1px solid var(--error);
 }
+
 
 /* navbar */
 nav {
@@ -110,9 +108,6 @@ nav a, nav button {
   margin-left: 10px;
 }
 nav button {
-  background: #fff;
-  color: var(--primary);
-  border: 2px solid var(--primary);
   padding: 6px 10px;
   border-radius: 4px;
   font-family: "Poppins";
@@ -120,11 +115,222 @@ nav button {
   font-size: 1em;
 }
 
+
 /* auth forms */
 form.signup, form.login {
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
-  background: #fff;
   border-radius: 4px;
+}
+
+
+
+
+/* themed styling */
+
+
+header.header-light a {
+  color: rgb(91, 228, 73);
+  text-decoration: none;
+}
+.App-light {
+  background: #0ded54;
+  height: 100vh;
+}
+div.div-light {
+  color:#0ded54;
+}
+header.header-light {
+  background: rgb(218, 128, 128);
+}
+.pages-light {
+  background: #3403e7;
+}
+.workout-details-light {
+  background: rgb(227, 164, 164);
+  box-shadow: 2px 2px 5px rgb(61, 164, 43);
+}
+.workout-details-light h4 {
+  color: rgb(0, 0, 0);
+}
+.workout-details-light p {
+  color: rgb(249, 228, 228);;
+}
+
+.workout-details-light span {
+  background: #d4279b;
+  color: rgb(255, 255, 255)
+}
+.btn-light{
+  border:1px solid #0a0a0a;
+  color:#e7195a;
+  background: rgb(255, 255, 0);
+  padding: 5px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+form.form-light input {
+  border: 2px solid rgb(255, 1, 204);
+  background:rgb(38, 230, 255);
+  color:rgb(11, 2, 2)
+}
+form.form-light button {
+  background: rgb(255, 9, 214);
+  color: rgb(11, 2, 2);
+}
+form.form-light label {
+  color: rgb(255, 0, 0);
+}
+form.form-light h3 {
+  color: rgb(255, 0, 0);
+}
+nav.nav-light button {
+  background: rgb(5, 5, 5);
+  color: rgb(38, 230, 255);
+  border: 2px solid rgb(38, 230, 255);
+}
+
+form.login-light h3 {
+  color: rgb(255, 0, 0);
+}
+form.login-light label {
+  color: rgb(255, 0, 0);
+}
+form.signup-light h3 {
+  color: rgb(255, 0, 0);
+}
+form.signup-light label {
+  color: rgb(255, 0, 0);
+}
+form.login-light input {
+  border: 2px solid rgb(255, 1, 204);
+  background:rgb(38, 230, 255);
+  color:rgb(11, 2, 2)
+}
+form.signup-light input {
+  border: 2px solid rgb(255, 1, 204);
+  background:rgb(38, 230, 255);
+  color:rgb(11, 2, 2)
+}
+form.login-light button {
+  background: rgb(255, 9, 214);
+  color: rgb(11, 2, 2);
+}
+form.signup-light button {
+  background: rgb(255, 9, 214);
+  color: rgb(11, 2, 2);
+}
+form.signup-light, form.login-light {
+  background: rgb(238, 187, 187);
+}
+
+
+
+
+/* Too Much Color styling */
+
+.App-dark {
+  background: #f1f1f1;
+  height: 100vh;
+}
+div.div-dark {
+  color:#000000;
+}
+header.header-dark {
+  background: #fff;
+}
+header.header-dark a {
+  color: #333;
+  text-decoration: none;
+}
+.workout-details-dark {
+  background: #fff;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.pages-dark {
+  background: #f1f1f1;
+}
+.workout-details-dark h4 {
+  color: var(--primary);
+}
+.workout-details-dark p {
+  color: #555;;
+}
+.workout-details-dark span {
+  background: #f1f1f1;
+  color: #333
+}
+.btn-dark {
+  border:1px solid #0a0a0a;
+  color:#000000;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+form.form-dark input {
+  border: 2px solid #ddd;
+}
+
+form.form-dark label {
+  color: rgb(0, 0, 0);
+}
+
+form.form-dark h3 {
+  color: rgb(0, 0, 0);
+}
+form.form-dark button {
+  background: var(--primary);
+  color: #fff;
+}
+
+nav.nav-dark button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+form.signup-dark, form.login-dark {
+  background: #fff;
+}
+
+form.signup-dark button {
+  background: var(--primary);
+  color: #fff;
+}
+
+form.login-dark button {
+  background: var(--primary);
+  color: #fff;
+}
+
+form.signup-dark input {
+  border: 2px solid #ddd;
+}
+
+form.login-dark input {
+  border: 2px solid #ddd;
+}
+
+
+form.signup-dark label {
+  color: rgb(0, 0, 0);
+}
+
+form.signup-dark h3 {
+  color: rgb(0, 0, 0);
+}
+
+
+form.login-dark label {
+  color: rgb(0, 0, 0);
+}
+
+form.login-dark h3 {
+  color: rgb(0, 0, 0);
 }

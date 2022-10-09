@@ -1,7 +1,11 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useSignup } from "../hooks/useSignup"
+import { ThemeContext } from '../context/ThemeContext'
 
 const Signup = () => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const {signup, error, isLoading} = useSignup()
@@ -13,7 +17,7 @@ const Signup = () => {
   }
 
   return (
-    <form className="signup" onSubmit={handleSubmit}>
+    <form className={`signup ${darkMode ? "signup-dark" : "signup-light"}`} onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
       
       <label>Email address:</label>

@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 const Navbar = () => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   const { logout } = useLogout()
   const { user } = useAuthContext()
 
@@ -11,15 +15,15 @@ const Navbar = () => {
   }
 
   return (
-    <header>
+    <header className={`header ${darkMode ? "header-dark" : "header-light"}`}>
       <div className="container">
-        <Link to="/">
+        <Link to="/" >
           <h1>Focused Fitness</h1>
         </Link>
-        <nav>
+        <nav className={`nav ${darkMode ? "nav-dark" : "nav-light"}`}>
           {user && (
             // if we have a user we see this
-            <div>
+            <div className={`div ${darkMode ? "div-dark" : "div-light"}`}>
               <span>{user.email}</span>
               <button onClick={handleClick}>Log out</button>
             </div>
