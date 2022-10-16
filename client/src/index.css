@@ -3,16 +3,16 @@
 
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: #67c9d2;
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background: #fcdb58;
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: #;
 }
 header .container {
   max-width: 1400px;
@@ -54,7 +54,7 @@ header a {
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+  color: #f068a4;
 }
 .workout-details span {
   position: absolute;
@@ -82,8 +82,8 @@ input {
 }
 form button {
   background: var(--primary);
-  border: 0;
-  color: #fff;
+  border: 2px solid #000000;
+  color: #000000;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
@@ -110,9 +110,9 @@ nav a, nav button {
   margin-left: 10px;
 }
 nav button {
-  background: #fff;
-  color: var(--primary);
-  border: 2px solid var(--primary);
+  background: #f068a4;
+  color: #000000;
+  border: 2px solid #000000;
   padding: 6px 10px;
   border-radius: 4px;
   font-family: "Poppins";
