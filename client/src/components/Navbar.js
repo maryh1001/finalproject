@@ -1,27 +1,29 @@
-import { Link } from "react-router-dom";
-import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
-import Logo from "../assets/1x/Asset 1.png";
-import "../style.css";
+import { Link } from 'react-router-dom'
+import { useLogout } from '../hooks/useLogout'
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 const Navbar = () => {
-  const { logout } = useLogout();
-  const { user } = useAuthContext();
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
+  const { logout } = useLogout()
+  const { user } = useAuthContext()
 
   const handleClick = () => {
     logout();
   };
 
   return (
-    <header>
+    <header className={`header ${darkMode ? "header-dark" : "header-light"}`}>
       <div className="container">
-        <Link to="/">
-          <img src={Logo} alt="focused fitness logo" />
+        <Link to="/" >
+          <h1>Focused Fitness</h1>
         </Link>
-        <nav>
+        <nav className={`nav ${darkMode ? "nav-dark" : "nav-light"}`}>
           {user && (
             // if we have a user we see this
-            <div>
+            <div className={`div ${darkMode ? "div-dark" : "div-light"}`}>
               <span>{user.email}</span>
               <button onClick={handleClick}>Log out</button>
             </div>
@@ -39,4 +41,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar
