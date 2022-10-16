@@ -4,6 +4,8 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import { useContext } from 'react'
 import { ThemeContext } from '../context/ThemeContext'
 
+import logo from '/Users/mary/Documents/ExtendClassFiles/Final Project/finalproject/client/src/assets/img/ff.png'
+
 const Navbar = () => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
@@ -18,7 +20,8 @@ const Navbar = () => {
     <header className={`header ${darkMode ? "header-dark" : "header-light"}`}>
       <div className="container">
         <Link to="/" >
-          <h1>Focused Fitness</h1>
+          {/* <h1>Focused Fitness</h1> */}
+          <img className= "img" alt="logo" src={logo}/>
         </Link>
         <nav className={`nav ${darkMode ? "nav-dark" : "nav-light"}`}>
           {user && (
